@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id</th><th>Nom-Car</th> <th>Pays</th> <th>Date Match</th><th>Legue</th><th>image</th> </tr>
+    <tbody *ngFor="let car of car">
+    <tr >
+    <td>{{car.idCar}}</td>
+    <td>{{car.nomCar}}</td>
+    <td>{{car.paysCar}}</td>
+    
+    <td>{{car.dateFound | date:'dd/MM/yyyy'}}</td>
+    <td>{{car.categorie.nomCategorie}}</td>
+    <td><img class="card-img-top img-responsive"
+        src = "{{car.imageStr}}"
+        style = "height :50px;width:100px">
+        </td>
+        
+    <td><a class="btn btn-danger" *ngIf="authService.isAdmin()" (click)="supprimercar(car)">Supprimer</a></td>
+    <td><a class="btn btn-success" *ngIf="authService.isAdmin()" [routerLink]="['/update-car',car.idCar]">Modifier</a></td>
+    </tr>
+    </tbody>
+    
+    </table>
+    </div>
+    </div>
+    </div>

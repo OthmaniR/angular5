@@ -1,0 +1,28 @@
+<div class="container">
+    
+        <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+            <label>Nom categorie</label>
+            <input type="text" class="form-control" [(ngModel)]="Categories.nomCategorie" name="nomCategorie"  >
+            </div>
+            <div class="mt-2">
+        <button type="submit" (click)="AjouterCategories()"class="btn btn-success" >Ajouter</button>
+        </div>
+
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <thead>
+    <tr> <th>Id</th><th>Nom categorie</th> </tr>
+    </thead>
+    <tbody *ngFor="let l of categorie">
+    <tr>
+    <td>{{l.idLeg}}</td>
+    <td>{{l.nomCategorie}}</td>
+    <td><a class="btn btn-success" (click)="updateleg(l)">Editer</a></td>
+
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

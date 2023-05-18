@@ -1,0 +1,29 @@
+<div class="container">
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom car</label>
+        <input type="text" class="form-control" [(ngModel)]="nomcar" name="nomcar"  #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+        
+        </div>
+        </form>
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id</th><th>Nom-Car</th> <th>pays</th> <th>Date Match</th><th>Legue</th> </tr>
+    <tbody *ngFor="let car of car">
+    <tr >
+    <td>{{car.idCar}}</td>
+    <td>{{car.nomCar}}</td>
+    <td>{{car.paysCar}}</td>
+    
+    <td>{{car.dateFound | date:'dd/MM/yyyy'}}</td>
+    <td>{{car.categorie.nomCategorie}}</td>
+    <td><a class="btn btn-success" *ngIf="authService.isAdmin()" [routerLink]="['/update-car',car.idCar]">Modifier</a></td>
+    </tr>
+    </tbody>
+    
+    </table>
+    </div>
+    </div>
+    </div>
